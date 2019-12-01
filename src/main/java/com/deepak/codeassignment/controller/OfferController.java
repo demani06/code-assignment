@@ -73,7 +73,7 @@ public class OfferController {
             offerToBeCancelled.setOfferStatus(OfferStatusEnum.CANCELLED);
             //TODO - update the modified date, modified user info
 
-            final Offer updatedOffer = offerService.updateOffer(offerToBeCancelled);
+            final Offer updatedOffer = offerService.cancelOffer(offerToBeCancelled);
             return ResponseEntity.ok(updatedOffer);
 
         } else {

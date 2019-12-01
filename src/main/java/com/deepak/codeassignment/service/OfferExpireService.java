@@ -4,7 +4,6 @@ import com.deepak.codeassignment.model.Offer;
 import com.deepak.codeassignment.model.OfferStatusEnum;
 import com.deepak.codeassignment.repository.OfferRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -21,8 +20,11 @@ import java.util.List;
 @Slf4j
 public class OfferExpireService {
 
-    @Autowired
     private OfferRepository offerRepository;
+
+    public OfferExpireService(OfferRepository offerRepository) {
+        this.offerRepository = offerRepository;
+    }
 
     //This can be configured as cron as well, for simplicity have put as fixedRate
     @Scheduled(fixedRateString = "${fixedRate.in.milliseconds}")
@@ -44,7 +46,10 @@ public class OfferExpireService {
                 //Update the status to expired
                 expiredOffer.setOfferStatus(OfferStatusEnum.EXPIRED);
                 //Todo set the modified date
-                offerRepository.saveAndFlush(expiredOffer);
+                Offer updatedOffer = offerRepository.saveAndFlush(expiredOffer);
+
+                log.info("Updated offer details, offer id = {} and offer status = {}", updatedOffer.getOfferDescription(), updatedOffer.getOfferStatus());
+
             }
 
         } else {

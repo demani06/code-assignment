@@ -10,18 +10,13 @@ Assumptions/Decisions taken
 1. add validation logic
 2. Add Swagger for API spec
 3. Integration test cases
-4. Exception Handling
-5. Auditing functionality (adding modified by, modified on, created by and created on)
+4. Auditing functionality (adding modified by, modified on, created by and created on)
 6. refactor by adding conditions object
 
 
 
 
-
-
-
-
-
+---------------------------------------------------------------------------------------------------------------------------------
 Assignment
 
 You are required to create a simple RESTful software service that will allow a merchant to create a new simple offer.

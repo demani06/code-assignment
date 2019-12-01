@@ -73,7 +73,7 @@ class OfferControllerUnitSpec extends Specification {
         offerService.getOfferByOfferId(3) >> Optional.of(offer1)
         offerService.getOfferByOfferId(1) >> Optional.empty()
 
-        offerService.updateOffer(offer1) >> offer1WithCancelledStatus
+        offerService.cancelOffer(offer1) >> offer1WithCancelledStatus
     }
 
     @Unroll("test the get offers endpoint")

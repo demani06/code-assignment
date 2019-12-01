@@ -9,9 +9,9 @@ public interface OfferService {
 
     List<Offer> getOffers();
 
-    Offer createOffer(Offer offer);
+    //Offer createOffer(Offer offer);
 
     Optional<Offer> getOfferByOfferId(long offerId);
 
-    Offer updateOffer(Offer offerToBeCancelled);
+    Offer cancelOffer(Offer offerToBeCancelled);
 }
